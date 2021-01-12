@@ -1,3 +1,3 @@
-click below link to see html file
+tatclick below link to see presentation
 
 https://myk137.github.io/myAppPresentation.html#/
