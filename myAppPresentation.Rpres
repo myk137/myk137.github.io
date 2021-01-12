@@ -1,0 +1,47 @@
+myAppPresentation
+========================================================
+author: created by myk137
+date: 
+autosize: true
+transition: rotate
+
+Data
+========================================================
+
+```{r, echo=FALSE, message=FALSE}
+library(randomForest); library(ggplot2)
+```
+
+myApp uses 'mtcars' dataset. Random forest method is used to model outcome MPG against two predictors Displacement and Horse Power.
+
+```{r}
+mtcar <- mtcars[,c(1,3,4)]; 
+head(mtcar,5)
+```
+
+Modelling by Random Forest Method
+========================================================
+
+```{r}
+model <- randomForest(mpg ~ disp + hp, data=mtcar); 
+model
+```
+
+Prediction of Miles/gallon
+========================================================
+
+Prediction function is used to predict 'MPG' when user inputs 'displacement' and 'horse power' as represented by 'disp' and 'hp' respectively.   
+
+```{r}
+dispInput <- round(mean(mtcars$disp))
+hpInput <- round(mean(mtcars$hp))
+modelpred <- predict(model, newdata = data.frame(disp = dispInput, hp = hpInput))
+modelpred
+```
+
+Plot of 'mtcars' dataset
+========================================================
+
+```{r, fig.width=15, fig.height=5}
+ggplot(mtcar, aes(y=mpg, x=disp, color=hp)) + geom_point(size=5, alpha=0.7) + labs(x="Displacement", y="MPG") + labs(colour="Horse Power") + geom_point(x=dispInput, y=modelpred, color=hpInput, size=7)
+```

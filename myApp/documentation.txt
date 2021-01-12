@@ -1,0 +1,20 @@
+This application uses 'mtcars' dataset and model the oucome Miles/gallon (MPG) against Displacement and Horse Power using Random Forest Method.
+
+User can input values for displacement and horse power to get the predicted value for MPG.
+
+It plots MPG on y-axis, diplacement on x-axis and insert second predictor horse power through colour. 
+It also plots the point for the inserted input values and their corresponding output.
+
+Input:
+	location: side panel
+	type    : slider
+	input 1 : Horse Power
+	input 2 : Diplacement
+
+Output:
+	location: main panel
+	output  : predicted MPG value
+	
+Plot: 
+	location: main panel
+	type    : scatter plot
